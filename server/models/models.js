@@ -12,11 +12,11 @@ const Basket = sequelize.define('basket', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
 
-const BasketDevice = sequelize.define('basket_device', {
+const BasketModel = sequelize.define('basket_model', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
 
-const Device = sequelize.define('device', {
+const Model = sequelize.define('model', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
@@ -39,7 +39,7 @@ const Rating = sequelize.define('rating', {
     rate: {type: DataTypes.INTEGER, allowNull: false},
 })
 
-const DeviceInfo = sequelize.define('device_info', {
+const ModelInfo = sequelize.define('model_info', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     title: {type: DataTypes.STRING, allowNull: false},
     description: {type: DataTypes.STRING, allowNull: false},
@@ -56,23 +56,23 @@ Basket.belongsTo(User)
 User.hasMany(Rating)
 Rating.belongsTo(User)
 
-Basket.hasMany(BasketDevice)
-BasketDevice.belongsTo(Basket)
+Basket.hasMany(BasketModel)
+BasketModel.belongsTo(Basket)
 
-Type.hasMany(Device)
-Device.belongsTo(Type)
+Type.hasMany(Model)
+Model.belongsTo(Type)
 
-Brand.hasMany(Device)
-Device.belongsTo(Brand)
+Brand.hasMany(Model)
+Model.belongsTo(Brand)
 
-Device.hasMany(Rating)
-Rating.belongsTo(Device)
+Model.hasMany(Rating)
+Rating.belongsTo(Model)
 
-Device.hasMany(BasketDevice)
-BasketDevice.belongsTo(Device)
+Model.hasMany(BasketModel)
+BasketModel.belongsTo(Model)
 
-Device.hasMany(DeviceInfo, {as: 'info'});
-DeviceInfo.belongsTo(Device)
+Model.hasMany(ModelInfo, {as: 'info'});
+ModelInfo.belongsTo(Model)
 
 Type.belongsToMany(Brand, {through: TypeBrand })
 Brand.belongsToMany(Type, {through: TypeBrand })
@@ -80,13 +80,13 @@ Brand.belongsToMany(Type, {through: TypeBrand })
 module.exports = {
     User,
     Basket,
-    BasketDevice,
-    Device,
+    BasketModel,
+    Model,
     Type,
     Brand,
     Rating,
     TypeBrand,
-    DeviceInfo
+    ModelInfo
 }
 
 
