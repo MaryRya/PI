@@ -28,7 +28,6 @@ const ModelPage = () => {
                         )}
                     </Row>
                     <h5 className="mt-3">Цена: {model.price} руб.</h5>
-                    <Button variant={"outline-primary"} className="mt-3">Добавить в корзину</Button>
                 </Col>
             </Row>
         </Container>

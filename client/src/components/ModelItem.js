@@ -12,7 +12,6 @@ const ModelItem = ({model}) => {
             <Card style={{width: 200, cursor: 'pointer'}} border={"light"} >
                 <Image width={200} height={200} src={'http://localhost:5000/' + model.img}/>
                 <div className="text-black-50 mt-1 d-flex justify-content-between align-items-center">
-                    <div>Zara...</div>
                     <div className="d-flex align-items-center">
                         <div>{model.rating}</div>
                         <Image width={18} height={18} src={star}/>

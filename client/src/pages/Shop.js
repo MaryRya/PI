@@ -6,6 +6,7 @@ import ModelList from "../components/ModelList";
 import {observer} from "mobx-react-lite";
 import {Context} from "../index";
 import {fetchBrands, fetchModels, fetchTypes} from "../http/modelApi";
+import Pages from "../components/Pages";
 
 const Shop = observer(() => {
     const {model} = useContext(Context)
@@ -30,6 +31,7 @@ const Shop = observer(() => {
             <Col md={9}>
                 <BrandBar/>
                 <ModelList/>
+                <Pages/>
             </Col>
         </Row>
     );
